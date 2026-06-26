@@ -21,7 +21,7 @@ df['stage_encoded']  = df['stage'].map(stage_mapping)
 df['result']         = df['result_type'].map({"Home Win": 1, "Draw": 0, "Away Win": -1})
 df['elo_difference'] = df['home_pre_match_elo'] - df['away_pre_match_elo']
 
-#training the model
+
 
 df_shuffled = df.sample(frac=1, random_state=42).reset_index(drop=True)
 split       = int(0.8 * len(df_shuffled))
@@ -46,7 +46,7 @@ y_train_binary = (y_train == 1).astype(float)
 y_test_binary  = (y_test  == 1).astype(float)
 
 
-
+#training the model
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
